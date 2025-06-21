@@ -1,4 +1,12 @@
-import { InfoCart, StaticticConatiner } from "./GlobalStyles";
+import {
+  Date,
+  Datediv,
+  Header,
+  HeaderTitle,
+  InfoCart,
+  OrderConatiner,
+  StaticticConatiner,
+} from "./GlobalStyles";
 import Dashboard from "./layouts/Dashboard";
 import HeartIcon from "./assets/Heart.svg";
 import GameIcon from "./assets/Game.svg";
@@ -7,6 +15,9 @@ import WorkIcon from "./assets/Work.svg";
 import Info from "./components/Info";
 import Chart from "./components/Chart";
 import Area from "./components/Area";
+import Orders from "./components/Orders";
+import Product from "./components/Product";
+import arrow from "./assets/orders/Vector.svg";
 
 export default function App() {
   const info = [
@@ -14,42 +25,63 @@ export default function App() {
       title: "Save Products",
       value: 178,
       img: HeartIcon,
-      type:"Heart"
+      type: "Heart",
     },
     {
       title: "Stock Products",
       value: 20,
       img: GameIcon,
-      type:"Game"
+      type: "Game",
     },
     {
       title: "Sales Products",
       value: 190,
       img: BagIcon,
-      type:"Bag"
+      type: "Bag",
     },
     {
       title: "Job Applications",
       value: 12,
       img: WorkIcon,
-      type:"Work"
+      type: "Work",
     },
   ];
 
   return (
     <>
       <Dashboard>
-        <h3>Dashboard</h3>
+        <Header>
+          <HeaderTitle>Dashboard </HeaderTitle>
+          <Datediv>
+            <Date>
+              10-06-2021 <img src={arrow} />{" "}
+            </Date>
+            <Date>
+              10-06-2021 <img src={arrow} />{" "}
+            </Date>
+          </Datediv>
+        </Header>
         <InfoCart>
-          {info.map(({ title, value, img,type }) => {
-            return <Info key={title} title={title} type={type} value={value} img={img} />;
+          {info.map(({ title, value, img, type }) => {
+            return (
+              <Info
+                key={title}
+                title={title}
+                type={type}
+                value={value}
+                img={img}
+              />
+            );
           })}
         </InfoCart>
         <StaticticConatiner>
-
-        <Area/>
-        <Chart/>
+          <Area />
+          <Chart />
         </StaticticConatiner>
+        <OrderConatiner>
+          <Orders />
+          <Product />
+        </OrderConatiner>
       </Dashboard>
     </>
   );

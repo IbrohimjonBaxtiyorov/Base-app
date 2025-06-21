@@ -12,9 +12,12 @@ import {
   Name,
   NameDesc,
   NameConatiner,
+  CardWrapper,
+  LampImage,
+  UpgradeButton,
+  Vector,
 } from "./Siedbar.styles.js";
 import logo from "../../assets/Base.svg";
-import { FaChartBar, FaUserAlt, FaCog, FaBars } from "react-icons/fa";
 import dashboard from "../../assets/Category.svg";
 import analiytc from "../../assets/Chart.svg";
 import invoice from "../../assets/incoise.svg";
@@ -25,7 +28,8 @@ import notifications from "../../assets/Notification.svg";
 import setting from "../../assets/Setting.svg";
 import logout from "../../assets/Logout.svg";
 import profile from "../../assets/Profile.svg";
-
+import lamp from "../../assets/object.svg";
+import vector from "../../assets/Vector.svg";
 export default function Sidebar() {
   const [open, setOpen] = useState(false);
 
@@ -64,17 +68,25 @@ export default function Sidebar() {
         </NavList>
       </div>
       {!open && (
-        <SidebarBottom>
-          <Bottomlogo>
-            <img src={profile} width={45} />
+        <CardWrapper>
+          <LampImage src={lamp} alt="Lamp" />
+          <Vector src={vector} alt="" />
+          <UpgradeButton>Upgrade Now</UpgradeButton>
+        </CardWrapper>
+      )}
+
+      <SidebarBottom open={open}>
+        <Bottomlogo>
+          <img src={profile} width={45} />
+          {!open && (
             <NameConatiner>
               <Name>Easin Arafat</Name>
               <NameDesc>Free Account</NameDesc>
             </NameConatiner>
-          </Bottomlogo>
-          <img src={logout} width={17} />
-        </SidebarBottom>
-      )}
+          )}
+        </Bottomlogo>
+        <img src={logout} width={17} />
+      </SidebarBottom>
     </SidebarContainer>
   );
 }

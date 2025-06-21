@@ -14,6 +14,8 @@ export const SidebarContainer = styled.div`
   margin-top: ${(props) => (props.open ? "18px" : "0px")};
   border-radius: 16px;
   margin-left: 18px;
+  height: auto;
+  min-height: 100vh;
 `;
 
 export const SidebarHeader = styled.div`
@@ -72,6 +74,8 @@ export const Label = styled.span`
 
 export const SidebarBottom = styled.div`
   display: flex;
+  flex-direction: ${(props) => (props.open ? "column" : "")};
+  gap: ${(props) => (props.open ? "20px" : "0px")};
   align-items: center;
   justify-content: space-between;
 `;
@@ -103,4 +107,46 @@ export const NameConatiner = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 1px;
+`;
+
+export const CardWrapper = styled.div`
+  background-color: #f5f8ff;
+  padding: 40px 20px;
+  height: 160px;
+  width: 161px;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+`;
+
+export const LampImage = styled.img`
+  width: 140px;
+  margin-bottom: 30px;
+  color: #5b93ff;
+  position: absolute;
+  margin-top: -70px;
+`;
+
+export const UpgradeButton = styled.button`
+  background-color: #5b93ff;
+  color: white;
+  font-weight: 500;
+  border: none;
+  border-radius: 14px;
+  padding: 14px 32px;
+  cursor: pointer;
+  font-size: 14px;
+  position: absolute;
+  margin-top: 130px;
+  &:hover {
+    background-color: #4a45e6;
+  }
+`;
+
+export const Vector = styled.img`
+  position: absolute;
+  margin-top: 35px;
 `;

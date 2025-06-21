@@ -1,6 +1,8 @@
 import React from "react";
 import ReactApexChart from "react-apexcharts";
-import { ChartCard, Legend, LegendItem, ColorDot } from "./Chart-style";
+import { ChartCard, Legend, LegendItem, ColorDot, Image } from "./Chart-style";
+import dot from "../assets/orders/Menu.svg";
+import { OrderTitle, Title } from "./Order";
 
 export default function Chart() {
   const options = {
@@ -9,7 +11,7 @@ export default function Chart() {
     },
     labels: ["Sale", "Distribute", "Return"],
     legend: {
-      show: false, // ApexCharts legendni o'chiramiz
+      show: false,
     },
   };
 
@@ -18,7 +20,12 @@ export default function Chart() {
 
   return (
     <ChartCard>
-      <h3>Analytics</h3>
+      <OrderTitle>
+        <Title>Analytics</Title>
+        <Image>
+          <img src={dot} width={12} />
+        </Image>
+      </OrderTitle>
       <ReactApexChart
         options={options}
         series={series}

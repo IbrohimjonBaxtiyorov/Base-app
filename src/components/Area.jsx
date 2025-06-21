@@ -1,5 +1,7 @@
 import ReactApexChart from "react-apexcharts";
-import { ChartCard } from "./Chart-style";
+import { ChartCard, Image } from "./Chart-style";
+import { OrderTitle, Title } from "./Order";
+import dot from "../assets/orders/Menu.svg";
 
 export default function Area() {
   const series = [
@@ -36,9 +38,9 @@ export default function Area() {
         "2018-09-19T10:00:00.000Z",
       ],
     },
-    tooltip: {
-      x: {
-        format: "dd/MM/yy HH:mm",
+    labels: {
+      datetimeFormatter: {
+        hour: "hh:mm TT",
       },
     },
   };
@@ -46,7 +48,12 @@ export default function Area() {
   return (
     <div id="chart">
       <ChartCard>
-        <h5>Reports</h5>
+        <OrderTitle>
+          <Title>Reports</Title>
+          <Image>
+            <img src={dot} width={12} />
+          </Image>
+        </OrderTitle>
         <ReactApexChart
           options={options}
           series={series}
