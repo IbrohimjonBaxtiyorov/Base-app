@@ -1,4 +1,4 @@
-import { InfoCart } from "./GlobalStyles";
+import { InfoCart, StaticticConatiner } from "./GlobalStyles";
 import Dashboard from "./layouts/Dashboard";
 import HeartIcon from "./assets/Heart.svg";
 import GameIcon from "./assets/Game.svg";
@@ -45,8 +45,11 @@ export default function App() {
             return <Info key={title} title={title} type={type} value={value} img={img} />;
           })}
         </InfoCart>
+        <StaticticConatiner>
+
         <Area/>
         <Chart/>
+        </StaticticConatiner>
       </Dashboard>
     </>
   );

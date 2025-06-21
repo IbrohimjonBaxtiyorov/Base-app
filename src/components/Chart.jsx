@@ -1,4 +1,6 @@
+import React from "react";
 import ReactApexChart from "react-apexcharts";
+import { ChartCard, Legend, LegendItem, ColorDot } from "./Chart-style";
 
 export default function Chart() {
   const options = {
@@ -6,32 +8,33 @@ export default function Chart() {
       type: "donut",
     },
     labels: ["Sale", "Distribute", "Return"],
-    responsive: [
-      {
-        breakpoint: 480,
-        options: {
-          chart: {
-            width: 200,
-          },
-          legend: {
-            position: "bottom",
-          },
-        },
-      },
-    ],
+    legend: {
+      show: false, // ApexCharts legendni o'chiramiz
+    },
   };
 
-  const series = [44, 32, 41,];
+  const series = [44, 32, 41];
+  const colors = ["#008FFB", "#00E396", "#FEB019"];
 
   return (
-    <div>
+    <ChartCard>
       <h3>Analytics</h3>
       <ReactApexChart
         options={options}
         series={series}
         type="donut"
-        width={380}
+        width={390}
+        height={300}
       />
-    </div>
+
+      <Legend>
+        {options.labels.map((label, i) => (
+          <LegendItem key={i}>
+            <ColorDot style={{ backgroundColor: colors[i] }} />
+            {label}
+          </LegendItem>
+        ))}
+      </Legend>
+    </ChartCard>
   );
 }

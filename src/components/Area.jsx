@@ -1,15 +1,11 @@
-import React from "react";
 import ReactApexChart from "react-apexcharts";
+import { ChartCard } from "./Chart-style";
 
 export default function Area() {
   const series = [
     {
       name: "series1",
-      data: [31, 40, 28, 51, 42, 109, 100],
-    },
-    {
-      name: "series2",
-      data: [11, 32, 45, 32, 34, 52, 41],
+      data: [60, 37, 60, 39, 52, 21, 54, 18, 30, 75, 94],
     },
   ];
 
@@ -28,12 +24,16 @@ export default function Area() {
       type: "datetime",
       categories: [
         "2018-09-19T00:00:00.000Z",
-        "2018-09-19T01:30:00.000Z",
-        "2018-09-19T02:30:00.000Z",
-        "2018-09-19T03:30:00.000Z",
-        "2018-09-19T04:30:00.000Z",
-        "2018-09-19T05:30:00.000Z",
-        "2018-09-19T06:30:00.000Z",
+        "2018-09-19T01:00:00.000Z",
+        "2018-09-19T02:00:00.000Z",
+        "2018-09-19T03:00:00.000Z",
+        "2018-09-19T04:00:00.000Z",
+        "2018-09-19T05:00:00.000Z",
+        "2018-09-19T06:00:00.000Z",
+        "2018-09-19T07:00:00.000Z",
+        "2018-09-19T08:00:00.000Z",
+        "2018-09-19T09:00:00.000Z",
+        "2018-09-19T10:00:00.000Z",
       ],
     },
     tooltip: {
@@ -45,12 +45,16 @@ export default function Area() {
 
   return (
     <div id="chart">
-      <ReactApexChart
-        options={options}
-        series={series}
-        type="area"
-        height={350}
-      />
+      <ChartCard>
+        <h5>Reports</h5>
+        <ReactApexChart
+          options={options}
+          series={series}
+          type="area"
+          height={320}
+          width={650}
+        />
+      </ChartCard>
     </div>
   );
 }
